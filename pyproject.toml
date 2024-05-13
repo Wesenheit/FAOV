@@ -1,0 +1,10 @@
+[build-system]
+requires = ["setuptools>=61","wheel","oldest-supported-numpy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "FAOV"
+version = "0.1"
+readme = {file = "README.md", content-type = "text/markdown"}
+authors = [
+    {name = "Mateusz Kapusta", email = "mr.kapusta@student.uw.edu.pl"}]
