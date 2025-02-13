@@ -8,12 +8,15 @@
 
 PyObject* Power(PyObject* self, PyObject* args)
 {
+    /*
+    Python wrapper 
+    */
     PyArrayObject* t_arr;
     PyArrayObject* mag_arr;
     double t_max;
     int bins; 
     if (!PyArg_ParseTuple(args, "O!O!id",&PyArray_Type, &t_arr,&PyArray_Type,&mag_arr,&bins,&t_max)) {
-        return NULL;
+        return NULL; // Process object,object, integer, double
     }
     double* time;
     double* magnitude;

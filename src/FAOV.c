@@ -6,7 +6,16 @@
 
 double AOV(Vector* time, Vector* magnitude, int n, int bins,double freq,double mean)
 {
-    int num_of_vec=n/4;
+    /*
+    Compute the AOV score for a given dataset and frequency
+    time - array of times
+    magnitude - array of magnitudes
+    n - lenght of time\magnitude
+    bins - number of bins
+    freq - frequency for which the AOV score will be computed
+    mean - mean of the magniteud
+    */
+    int num_of_vec = n/4;
     Vector phase[num_of_vec];
     Vector freq_vec;
     Vector support;
@@ -15,7 +24,7 @@ double AOV(Vector* time, Vector* magnitude, int n, int bins,double freq,double m
         freq_vec.array[i]=freq;
         support.array[i]=(double) bins;
     }
-    for (uint i=0;i<num_of_vec;i++)
+    for (int i=0;i<num_of_vec;i++)
     {
         phase[i].simd_vector=_mm256_sub_pd(_mm256_mul_pd(time[i].simd_vector,freq_vec.simd_vector),_mm256_floor_pd(_mm256_mul_pd(time[i].simd_vector,freq_vec.simd_vector)));
     }
@@ -31,7 +40,7 @@ double AOV(Vector* time, Vector* magnitude, int n, int bins,double freq,double m
     Vector square;
     Vector ide;
     int id;
-    for (uint i=0;i<num_of_vec;i++)
+    for (int i=0;i<num_of_vec;i++)
     {
         square.simd_vector=_mm256_mul_pd(magnitude[i].simd_vector,magnitude[i].simd_vector);
         ide.simd_vector=_mm256_floor_pd(_mm256_mul_pd(support.simd_vector,phase[i].simd_vector));
