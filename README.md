@@ -1,7 +1,8 @@
 # FAOV
 
-The Fast AOV algorithm for period fitting is a simple library written in low-level C with the assistance of SIMD instructions.
-Library utilizes AVX2 instructions to accelerate the computations. Library provides Numpy interface to the routines via Python/Numpy C API.
+The FAOV library for period finding is a simple library written in low-level C with the assistance of SIMD instructions.
+It allows to find best fitting period for the time-series data using the ANOVA method (doi:10.1086/309985).
+Library utilizes AVX2 instructions to accelerate the computations by packing four double variables into the single register. Library provides Numpy interface to the routines via Python/Numpy C API.
 Library is based on the code written by Przemysław Mróz @ Caltech.
 
 ![Test Image](./test/OGLE-BLG-RRLYR-00445.png)
