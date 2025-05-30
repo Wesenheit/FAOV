@@ -1,10 +1,13 @@
 [build-system]
-requires = ["setuptools>=61","wheel","oldest-supported-numpy"]
+requires = ["setuptools>=61", "wheel", "numpy"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "FAOV"
-version = "0.1"
-readme = {file = "README.md", content-type = "text/markdown"}
-authors = [
-    {name = "Mateusz Kapusta", email = "mr.kapusta@student.uw.edu.pl"}]
+version = "0.1.0"
+description = "Fast implementation of AOV algorithm for period fitting."
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.22.3"
+]
+
